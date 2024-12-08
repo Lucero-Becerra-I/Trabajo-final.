@@ -1,0 +1,984 @@
+/* Establecer la fuente y eliminar márgenes por defecto */
+body {
+    font-family: 'Times New Roman', Times, serif !important;
+    margin: 0;
+}
+
+/* Estilos del header: Ajustado para centrar todo verticalmente */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espaciado entre logo y menú */
+    background-color: rgb(7, 75, 43);
+    padding: 20px;
+    margin-bottom: 0; /* Sin margen inferior */
+    height: 100px; /* Asegura que el header tenga una altura suficiente para centrar verticalmente */
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.nombre {
+    font-size: 26px;
+    color: white;
+    display: flex;
+    align-items: center; /* Centra el texto verticalmente */
+}
+
+nav {
+    margin-left: auto; /* Empuja el nav hacia la derecha */
+}
+
+.menu1 {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Alineación horizontal */
+    align-items: center; /* Centrar verticalmente los elementos del menú */
+    gap: 20px; /* Espaciado entre los elementos */
+}
+
+.menu1 li {
+    margin: 0;
+}
+
+.menu1 a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    display: flex;
+    align-items: center; /* Asegura que los links también estén centrados verticalmente */
+}
+
+.menu1 a:hover {
+    text-decoration: underline;
+}
+
+
+
+@media (max-width: 1024px) {
+
+    /* Ocultar el menú desplegable al inicio */
+    .menu1 {
+        display: none;
+    }
+
+    /* Mostrar el menú hamburguesa */
+    .menu-icon {
+        display: block;
+        font-size: 30px; /* Tamaño del ícono */
+        cursor: pointer;
+    }
+
+    /* Cuando el menú está abierto, mostrar el menú desplegable */
+    .menu-container.open .menu1 {
+        display: block;
+        opacity: 1;
+        height: auto;
+    }
+
+    /* Cambiar la estructura del header para dispositivos pequeños */
+    header {
+        display: flex;
+        justify-content: space-between; /* Distribuye logo a la izquierda y menú a la derecha */
+        align-items: center; /* Alinea los elementos verticalmente */
+        padding: 15px;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+    }
+
+    .nombre {
+        font-size: 22px; /* Ajusta el tamaño de la fuente */
+        margin-left: 10px; /* Separación entre logo y nombre */
+    }
+
+    /* El menú de navegación se adapta a pantallas pequeñas */
+    nav {
+        margin-left: auto; /* Empuja el menú a la derecha */
+    }
+
+    .menu {
+        display: none; /* Ocultar el menú en modo móvil */
+    }
+
+    .menu-container.open .menu {
+        display: flex; /* Mostrar el menú al abrir el menú hamburguesa */
+        flex-direction: column;
+        gap: 10px;
+        align-items: center; /* Centra los elementos en el menú desplegable */
+    }
+
+    /* La imagen de la portada se ajusta en pantallas pequeñas */
+    .imagen-con-texto img {
+        height: 250px; /* Reduce la altura de la imagen en pantallas más pequeñas */
+    }
+
+    /* Reducir el tamaño del texto centrado sobre la imagen */
+    .texto-centrado {
+        font-size: 30px; /* Disminuir el tamaño para mejor legibilidad en móviles */
+    }
+
+    .carousel-caption {
+        font-size: 0.9rem; /* Reducir el tamaño del texto en pantallas más pequeñas */
+        padding: 10px; /* Añadir un poco de padding para que no quede tan pegado */
+    }
+}
+
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra todo */
+    text-align: center;
+  }
+  
+  .search__input {
+    font-size: inherit;
+    border: 1px solid rgb(7, 75, 43);
+    color: rgb(7, 75, 43);
+    padding: 5px 10px;
+    border-radius: 4px;
+    height: 35px;
+    width: 15rem;
+    padding-right: 2.5rem; /* Espacio adicional para que el texto no se sobreponga con la lupa */
+  }
+  
+  .search__input::-webkit-input-placeholder {
+    font-weight: 400;
+    color: rgb(7, 75, 43);
+    font-size: 14px;
+  }
+  
+  .search__button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    cursor: pointer;
+    margin-left: -2rem; /* Ajusta la lupa un poco más a la derecha */
+    display: flex;
+    align-items: center;
+  }
+  
+  .search__button:hover {
+    background-color: transparent; /* Elimina cualquier fondo al pasar el mouse */
+  }
+  
+  .search__button:focus {
+    outline: none; /* Quita el borde de enfoque (focus) */
+  }
+  
+  .search__button svg {
+    width: 20px;
+    height: 20px;
+    fill: rgb(7, 75, 43);
+  }
+  
+  .search input:focus {
+    outline: none;
+  }
+
+
+
+
+
+/* Estilo de la barra de navegación */
+.navbar {
+    background-color: transparent; /* Fondo de la barra de navegación transparente */
+    padding: 10px;
+    color: white;
+  }
+  
+  .menu-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .menu-icon {
+    font-size: 20px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  /* Menú desplegable oculto inicialmente */
+  .dropdown-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    display: none; /* Oculto por defecto */
+    top: 100%; /* Coloca el menú debajo del botón */
+    right: 0; /* Mueve el menú completamente a la izquierda del botón */
+    background-color: rgb(7, 75, 43) !important; /* Fondo verde para el menú desplegable */
+    width: 150px;
+    z-index: 1;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+    transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+  
+  .dropdown-menu li {
+    border-bottom: 1px solid rgb(6, 54, 32); /* Línea divisoria */
+  }
+  
+  .dropdown-menu li a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    background-color: transparent; /* Sin fondo para los enlaces */
+    font-size: 16px;
+    padding: 15px 20px;
+    transition: background-color 0.3s ease; /* Transición suave */
+  }
+  
+  /* Cambio de color al hacer hover sobre el enlace */
+  .dropdown-menu li a:hover {
+    background-color: rgb(6, 54, 32); /* Fondo verde oscuro al pasar el mouse */
+    color: white; /* Letras blancas al hacer hover */
+  }
+  
+  /* Al hacer hover sobre el contenedor del menú, muestra el menú */
+  .menu-container:hover .dropdown-menu {
+    display: block; /* Mostrar el menú cuando el mouse pasa por encima */
+    opacity: 1;
+    height: auto;
+    padding: 10px 0;
+  
+  }
+  
+  /* Elimina cualquier borde o sombra innecesaria */
+  .dropdown-menu {
+    border: none; /* Sin bordes */
+    box-shadow: none; /* Sin sombras */
+    background-color: transparent; /* Fondo transparente de todo el menú */
+    background: linear-gradient(to bottom, #41e049, #033f15); /* Degradado verde */
+    border-radius: 8px;
+  }
+
+
+
+
+/* Imagen principal con texto centrado */
+.imagen-con-texto {
+    position: relative;
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.imagen-con-texto img {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    height: 400px; /* Ajusta la altura de la imagen */
+    object-fit: cover; /* Mantiene la relación de aspecto de la imagen */
+}
+
+/* Estilo del texto centrado sobre la imagen */
+.texto-centrado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+
+  /* Estilo principal del carrusel */
+.carousel {
+    position: relative; /* Necesario para posicionar los controles de manera relativa al carrusel */
+    height: 400px;
+    overflow: hidden; /* Evita que se desborden los contenidos */
+}
+
+/* Los controles de navegación (flechas) */
+.carousel-control-prev, .carousel-control-next {
+    position: absolute !important; /* Posición absoluta para las flechas */
+    top: 50% !important; /* Las coloca verticalmente en el medio */
+    transform: translateY(-50%) !important; /* Alinea perfectamente las flechas en el centro vertical */
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    box-shadow: none; /* Sin sombras */
+    width: 60px; /* Ajustar el tamaño de la flecha (ancho) */
+    height: 60px; /* Ajustar el tamaño de la flecha (alto) */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    z-index: 10; /* Asegura que las flechas estén por encima de las imágenes */
+    font-size: 30px; /* Ajusta el tamaño de las flechas */
+    color: white; /* Color de las flechas */
+    font-weight: bold; /* Flechas más visibles */
+}
+
+/* Posición de las flechas a los lados del carrusel */
+.carousel-control-prev {
+    left: 10px; /* Flecha izquierda */
+}
+
+.carousel-control-next {
+    right: 10px; /* Flecha derecha */
+}
+
+/* Iconos de las flechas, cambiamos el color para hacerlo visible */
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: invert(1);
+}
+
+/* Efecto cuando pasas el mouse sobre las flechas */
+.carousel-control-prev:hover, .carousel-control-next:hover {
+    color: rgb(7, 75, 43); /* Color que cambia al pasar el mouse */
+    background-color: transparent; /* Fondo transparente (sin sombra) */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+/* Ajustes adicionales para el carrusel y las imágenes */
+.carousel-inner {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-item img {
+    width: 100%; /* Las imágenes ocupan todo el ancho */
+    height: 100%; /* Las imágenes ocupan todo el alto */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+.carousel-caption {
+
+    text-shadow: none;
+
+
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* Centra el texto en los ejes X e Y */
+    color: black !important; /* Color del texto */
+    text-align: center; /* Centrado del texto */
+    width: 100%; /* Para que ocupe el ancho completo */
+    z-index: 5; /* Asegura que el texto quede por encima de la imagen, pero debajo de las flechas */
+
+}
+
+.carousel-caption h5 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.carousel-caption p {
+    font-size: 16px;
+    line-height: 22px;
+    color: #333;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+
+
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 425px) {
+    /* Asegurarse de que el texto sea visible */
+    .carousel-caption {
+        font-size: 0.9rem ; /* Ajuste del tamaño de la fuente */
+        padding: 15px !important; /* Asegura que el texto no quede muy pegado */
+        position: absolute !important; /* Asegura que el texto esté sobre la imagen */
+        top: 50% !important; /* Centra el texto verticalmente */
+        left: 50% !important; /* Centra el texto horizontalmente */
+        transform: translate(-50%, -50%) !important; /* Ajuste fino para centrar el texto perfectamente */
+        color: black !important; /* Asegura que el texto sea visible */
+        text-align: center !important; /* Centrado del texto */
+        width: 100% !important; /* Asegura que el texto ocupe todo el ancho del carrusel */
+    }
+
+    .carousel-caption h5 {
+        font-size: 1.2rem; /* Ajuste para títulos más pequeños */
+    }
+
+    .carousel-caption p {
+        font-size: 1rem; /* Ajuste para descripciones más pequeñas */
+    }
+}
+
+
+
+
+
+
+
+/* Estilo del main */
+main {
+    padding: 20px; /* Padding interno del main */
+    margin-bottom: 20px; /* Margen inferior para separar del footer */
+}
+
+/* Contenido intercalado (texto + imagen) */
+.contenido-intercalado {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas más pequeñas */
+    align-items: flex-start;
+    margin: 20px 0;
+    justify-content: flex-start;
+}
+
+.imagen-articulo {
+    width: 40%; /* Ancho de la imagen */
+    height: auto; /* Mantiene la proporción */
+    max-height: 300px; /* Limita la altura para mantener uniformidad */
+    object-fit: cover; /* Mantiene la proporción y recorta si es necesario */
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.texto-articulo {
+    width: 50%; /* Ancho del bloque de texto */
+    margin-left: 50px; /* Espacio entre la imagen y el texto */
+}
+
+/* Sección sobre nosotros */
+.sobre-nosotros {
+    padding: 20px;
+    background-color: white; /* Fondo blanco para esta sección */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.sobre-nosotros h1 {
+    text-align: center; /* Centra el título */
+    font-size: 36px; /* Tamaño grande para el título */
+    margin-bottom: 20px;
+}
+
+.ventajas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas por defecto */
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.cuadrante {
+    background-color: #cab362c7;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.inicios {
+    margin: 40px 0; /* Espacio entre las secciones */
+}
+
+.contenido-cuadrante {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; /* Espacio entre el icono y el texto */
+}
+
+.icono {
+    width: 35px; /* Tamaño del icono */
+    height: auto;
+    margin-right: 10px; /* Espacio entre el icono y el texto */
+}
+
+.cuadrante h3 {
+    font-size: 18px; /* Tamaño del título dentro de los cuadrantes */
+}
+
+.cuadrante p {
+    margin-top: 10px;
+    text-align: left;
+    font-size: 15px; /* Tamaño más pequeño para los párrafos */
+}
+
+/* Media Queries para mejorar la responsividad */
+
+/* Para pantallas pequeñas (máximo 768px de ancho) */
+@media (max-width: 768px) {
+    .contenido-intercalado {
+        flex-direction: column; /* El texto y la imagen se apilan */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .imagen-articulo {
+        width: 80%; /* Las imágenes ocupan el 80% del ancho */
+        max-height: 250px; /* Limita la altura de la imagen */
+        margin-bottom: 20px; /* Espacio debajo de la imagen */
+    }
+
+    .texto-articulo {
+        width: 80%; /* El texto ocupa el 80% del ancho */
+        margin-left: 0;
+    }
+
+    .ventajas {
+        grid-template-columns: 1fr 1fr; /* Se mantienen 2 columnas pero se ajustan mejor en pantallas medianas */
+    }
+
+    .cuadrante h3 {
+        font-size: 16px; /* Reducción del tamaño de fuente */
+    }
+
+    .cuadrante p {
+        font-size: 14px; /* Reducción de tamaño de los párrafos */
+    }
+}
+
+/* Para pantallas muy pequeñas (máximo 480px de ancho) */
+@media (max-width: 480px) {
+    .contenido-intercalado {
+        flex-direction: column; /* El texto y la imagen se apilan */
+        align-items: center; /* Centra los elementos */
+    }
+
+    .imagen-articulo {
+        width: 100%; /* Las imágenes ocupan el 100% del ancho */
+        max-height: 200px; /* Limita la altura de la imagen */
+        margin-bottom: 15px; /* Espacio debajo de la imagen */
+    }
+
+    .texto-articulo {
+        width: 100%; /* El texto ocupa todo el ancho */
+        margin-left: 0;
+    }
+
+    .ventajas {
+        grid-template-columns: 1fr; /* Los cuadrantes se apilan en una columna */
+    }
+
+    .cuadrante h3 {
+        font-size: 14px; /* Reducción del tamaño del título */
+    }
+
+    .cuadrante p {
+        font-size: 13px; /* Reducción del tamaño de los párrafos */
+    }
+}
+
+
+
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    background-color: #cab362c7;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    padding: 10px;
+    text-align: center;
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto hover para agrandar la imagen */
+.producto:hover img {
+    transform: scale(1.1);
+}
+
+.producto h3 {
+    font-size: 18px;
+    margin-top: 10px;
+    color: black;
+}
+
+.producto p {
+    font-size: 14px;
+    color: rgb(14, 13, 13);
+    margin-top: 10px;
+}
+
+/* Estilo para los botones debajo de cada producto */
+.acciones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px; /* Espacio entre la descripción y los botones */
+    font-size: 14px; /* Tamaño pequeño para los botones */
+    width: 100%;
+}
+
+.like-btn, .save-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    outline: none; /* Elimina el borde que aparece en algunos navegadores al hacer click */
+}
+
+/* Efecto de hover en los botones */
+.like-btn:hover, .save-btn:hover {
+    transform: scale(1.2);
+    outline: none; /* Elimina el borde del hover */
+}
+
+.save-btn {
+    font-size: 18px; /* Tamaño discreto para el botón de guardar */
+    color: #888; /* Color más suave para hacerlo menos prominente */
+}
+
+.like-btn {
+    font-size: 20px; /* Tamaño ligeramente más grande para "me gusta" */
+}
+
+.like-count {
+    margin-left: 5px;
+}
+
+/* Botón "Ver más" */
+.ver-mas-btn {
+    margin-top: 15px;
+    background-color: #cab362c7;
+    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Efecto hover para el botón "Ver más" */
+.ver-mas-btn:hover {
+    background-color: #b9a044;
+}
+
+/* Ajustes para pantallas de tablets (menos de 768px de ancho) */
+@media (max-width: 768px) {
+    .productos {
+        padding: 10px;
+    }
+    .producto {
+        max-width: 250px;
+    }
+}
+
+/* Ajustes para pantallas de móviles (menos de 480px de ancho) */
+@media (max-width: 480px) {
+    .productos {
+        padding: 10px;
+    }
+    .producto {
+        max-width: 200px;
+    }
+}
+
+
+
+
+
+
+/* Estilo para la sección de contacto */
+.contacto {
+    display: flex;
+    flex-direction: column; /* Los elementos dentro de contacto se apilan verticalmente */
+    align-items: center; /* Centra el contenido */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px auto; /* Centra la sección */
+    max-width: 800px; /* Limita el ancho máximo para que no ocupe toda la pantalla */
+    box-sizing: border-box;
+}
+
+/* Estilo del formulario dentro de la sección de contacto */
+form {
+    display: flex;
+    flex-direction: column; /* Los campos del formulario se apilan verticalmente */
+    width: 100%;
+}
+
+/* Estilo de las etiquetas */
+label {
+    margin: 10px 0 5px;
+    font-weight: bold; /* Para mayor visibilidad */
+}
+
+/* Estilo para los campos de entrada y área de texto */
+input, textarea {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%; /* Los campos ocupan todo el ancho disponible */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+/* Estilo del botón */
+button {
+    padding: 10px;
+    background-color: rgb(7, 75, 43);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%; /* El botón ocupa todo el ancho del formulario */
+}
+
+/* Efecto hover del botón */
+button:hover {
+    background-color: rgb(6, 54, 32);
+}
+
+/* Estilo para la información adicional (como la dirección, etc.) */
+.info {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten a nuevas filas si es necesario */
+    gap: 20px;
+    justify-content: center; /* Centra los bloques de Tienda y Contactos */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Estilo para Tienda y Contactos */
+.tienda, .contactos {
+    flex: 1 1 45%; /* Ambos ocupan el 45% del espacio, se ajustan según el tamaño */
+    min-width: 280px; /* Tamaño mínimo para evitar que se vean demasiado pequeños */
+    margin: 0 10px; /* Añade separación horizontal entre los bloques */
+    padding: 10px; /* Espacio interior */
+    background-color: transparent; /* Sin fondo para que no se vea el cuadro */
+    border: none; /* Elimina el borde */
+    box-shadow: none; /* Elimina la sombra */
+    text-align: center; /* Centra el texto dentro de los bloques */
+}
+
+/* Título de la sección */
+.titulo-seccion {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+/* Media Queries para mejorar la responsividad */
+
+/* Para pantallas de tablets (menos de 768px de ancho) */
+@media (max-width: 768px) {
+    .contacto {
+        padding: 15px; /* Reduce el padding en pantallas pequeñas */
+    }
+
+    /* El formulario se mantiene como columna */
+    form {
+        padding: 10px;
+    }
+
+    /* Los campos de texto también deben ser más grandes */
+    input, textarea {
+        font-size: 1.1rem; /* Aumenta el tamaño de fuente para que sea más legible */
+    }
+
+    button {
+        font-size: 1.1rem; /* Aumenta el tamaño del botón */
+    }
+
+    /* El área de la información adicional se apila en una columna */
+    .info {
+        flex-direction: column;
+        align-items: center; /* Centra los bloques cuando están apilados */
+    }
+
+    /* Los bloques de tienda y contactos ocupan el 100% del ancho en pantallas pequeñas */
+    .tienda, .contactos {
+        flex: 1 1 100%;
+        min-width: 0;
+        margin: 10px 0; /* Añade separación vertical entre los bloques */
+    }
+}
+
+/* Para pantallas muy pequeñas (menos de 480px de ancho) */
+@media (max-width: 480px) {
+    .contacto {
+        padding: 10px; /* Reduce el padding en móviles */
+    }
+
+    .titulo-seccion {
+        font-size: 1.3em; /* Disminuye el tamaño del título */
+    }
+
+    input, textarea {
+        font-size: 1rem; /* Ajusta el tamaño de fuente para pantallas más pequeñas */
+    }
+
+    button {
+        font-size: 1rem; /* Ajusta el tamaño del botón */
+    }
+
+    .info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .tienda, .contactos {
+        flex: 1 1 100%;
+        min-width: 0;
+        margin: 10px 0;
+    }
+}
+
+
+
+/* Estilo para el footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 40px 20px;  /* Margen interno: 40px arriba y abajo, 20px a los lados */
+    font-family: 'Times New Roman', Times, serif;
+}
+
+/* Contenedor general del footer */
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;  /* Padding adicional dentro del contenedor */
+}
+
+/* Sección dentro del footer */
+.footer-section {
+    width: 100%;
+    max-width: 250px;
+    padding: 10px;  /* Margen interno en cada sección */
+}
+
+/* Títulos de las secciones */
+footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Listas de enlaces */
+footer ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin: 5px 0;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 16px;
+}
+
+footer ul li a:hover {
+    color: #fff;
+}
+
+/* Estilo de los iconos sociales */
+footer .social-icons a {
+    display: flex;
+    align-items: center;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+footer .social-icons a:hover {
+    color: #fff;
+}
+
+footer .social-icons i {
+    margin-right: 10px;
+}
+
+/* Estilo para el formulario de suscripción */
+footer form {
+    display: flex;
+    flex-direction: column;
+}
+
+footer input[type="email"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    font-size: 16px;
+}
+
+footer button[type="submit"] {
+    padding: 10px;
+    background-color: rgb(7, 75, 43);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+footer button[type="submit"]:hover {
+    background-color: rgb(6, 54, 32);
+}
+
+/* Estilo para la sección inferior */
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section {
+        width: 100%;
+        max-width: none;
+    }
+}
+
