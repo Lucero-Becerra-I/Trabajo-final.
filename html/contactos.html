@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras</title>
+    <link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="logo">
+            <img src="./img/Tierra Pura Logo 6..jpg" alt="Tierra Pura">
+        </div>
+        <div class="nombre">Tierra Pura</div>
+        <nav>
+            <ul class="menu1">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="html/nosotros.html">Nosotros</a></li>
+                <li><a href="html/productos.html">Productos</a></li>
+                <li><a href="html/contactos.html">Contactos</a></li>
+
+        <div class="search">
+          <input placeholder="Buscar" class="search__input" type="text" />
+          <button class="search__button">
+            <svg
+            viewBox="0 0 16 16"
+            class="bi bi-search"
+            fill="currentColor"
+            height="16"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+            >
+            <path
+                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"
+            ></path>
+            </svg>
+        </button>
+        </div>                  
+            </ul>
+        </nav>
+
+
+        <nav class="navbar">
+            <div class="menu-container">
+              <button class="menu-icon">☰ Menú</button>
+              <ul class="dropdown-menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Acerca de</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">Búsqueda</a></li>
+                <li><a href="#">Guardados</a></li>
+              </ul>
+            </div>
+          </nav>
+    
+    </header>
+
+
+    <main>
+        <h2 class="titulo-seccion">Contactos</h2>
+        <section class="contacto">
+            <h3>¿Tienes alguna duda?</h3>
+            <form> <!-- agrupa y envía datos -->
+                <label for="nombre">Nombre:</label> <!-- mejora la accesibilidad y la interacción con los campos de entrada -->
+                <input type="text" id="nombre" name="nombre" required> <!-- permite a los usuarios ingresar información -->
+    
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono">
+    
+                <label for="objeto">Asunto:</label>
+                <input type="text" id="objeto" name="objeto" required>
+    
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" rows="4" required></textarea> <!-- para entradas de texto largas y permite más flexibilidad en la escritura -->
+    
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+        <div class="info">
+            <div class="tienda">
+                <h3 class="titulo-seccion">Tienda</h3>
+                <p>Contáctanos y acordamos punto y horario de entrega.</p>
+                <p>No dudes en preguntar cualquier tipo de duda que tengas, siempre estamos a tu disposición, puedes comunicarte en los diversos contactos que posee Tierra Pura.</p>
+            </div>
+            <div class="contactos">
+                <h3 class="titulo-seccion">Contactos</h3>
+                <p>Teléfono: +54 9 11 2627-6880</p>
+                <p>Email: tierra.pura24@gmail.com</p>
+                <p>Facebook: @tierra.pura.2024</p>
+                <p>Instagram: @_tierra_pura_</p>
+            </div>
+        </div>
+    </main>
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Información de Contacto</h4>
+                <p><strong>Dirección:</strong> Buenos Aires, CABA, Argentina</p>
+                <p><strong>Teléfono:</strong> +54 9 11 2627-6880</p>
+                <p><strong>Email:</strong> tierra.pura24@gmail.com</p>
+            </div>
+            <div class="footer-section">
+                <h4>Redes Sociales</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    <a href="https://wa.me/541126276880" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.threads.net/@_tierra_pura_" target="_blank"><i class="fab fa-threads"></i> Threads</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Enlaces Rápidos</h4>
+                <ul>
+                    <li><a href="/about">Sobre Nosotros</a></li>
+                    <li><a href="/privacy-policy">Política de Privacidad</a></li>
+                    <li><a href="/terms">Términos y Condiciones</a></li>
+                    <li><a href="/faq">Preguntas Frecuentes</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suscríbete a Nuestro Newsletter</h4>
+                <form action="#" method="POST">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit">Suscribirse</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Tienda de Plantas 2024.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
